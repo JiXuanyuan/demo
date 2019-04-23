@@ -1,5 +1,5 @@
 # demo
 # 测试git命令
 
-git clone https://github.com/JiXuanyuan/demo.git
-git pull
+1)git clone https://github.com/JiXuanyuan/demo.git
+2)git pull
