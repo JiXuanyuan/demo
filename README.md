@@ -33,6 +33,7 @@
         git branch -a
         git branch day1
         git checkout day1
+        git push --set-upstream origin day1 （上传分支到远端代码库）
         git checkout 406ac5a （切换到短哈希为406ac5a的时间点）
     8）合并分支  
         git merge day1  （将day1分支合并到当前分支）
