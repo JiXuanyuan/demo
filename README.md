@@ -1,5 +1,4 @@
-# demo
-## git命令
+# git命令
 
     1）创建项目init
         git init
