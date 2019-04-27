@@ -36,7 +36,7 @@ this_arg_func() {
 	#解析参数值
 	while [ ! "$1" = "" ]; do
 		if [ "$1" = "$ARG" ]; then
-			#参数值不为空或“-”开头，则保存解析值
+			#参数值不为空或“-”开头，则保存参数值
 			[ "$2" = "" ] || (echo "$2" | grep -n "^-" >/dev/null) \
 				|| ARG_VALUE=$2
 			#映射函数与参数值
@@ -78,7 +78,9 @@ func_content() {
 }
 
 main() {
-	echo "# $(date) $ARG_TIMES #" >> $ARG_LOG
+    #创建log文件
+    echo " Shell Demo " >> $ARG_LOG
+    this_print "$ARG_LOG, $ARG_ECHO, $ARG_TIMES, $ARG_CONTENT"
 	this_print "$(date) 开始测试===>"
 
 	while (( i < $ARG_TIMES )); do
