@@ -1,9 +1,10 @@
 #!/bin/sh
 
+ARG_HELP='
 ###########################################################################
 #
-#   @ 陈佳辉 2019/03/27
 #   Shell Demo
+#   @ 陈佳辉 2019/03/27
 #   功能：实现循环打印指定文本内容，并可保存log。
 #       该脚本为演示Shell功能，尽量采用多种语法格式
 #   参数：
@@ -11,8 +12,10 @@
 #       -e  是否显式显示log
 #       -t  循环次数
 #       -c  文本内容
+#       -h  显示该帮助文本
 #
 ###########################################################################
+'
 
 ARG_LOG="./tmp.log"
 ARG_ECHO=true
@@ -77,6 +80,11 @@ func_content() {
 	ARG_CONTENT=$1
 }
 
+func_help() {
+    echo "$ARG_HELP"
+    exit 0
+}
+
 main() {
     #创建log文件
     echo " Shell Demo " >> $ARG_LOG
@@ -98,6 +106,8 @@ this_arg_func -l func_log $@
 this_arg_func -e func_echo $@
 this_arg_func -t func_times $@
 this_arg_func -c func_content $@
+
+this_arg_func -h func_help $@
 
 main
 
