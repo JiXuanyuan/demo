@@ -100,6 +100,7 @@ func_times() {
 
 func_content() {
 	ARG_CONTENT=$*
+	return 0
 }
 
 func_help() {
