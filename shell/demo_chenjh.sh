@@ -3,21 +3,24 @@
 ARG_HELP='
 ###########################################################################
 #
-#   Shell Demo
-#   @ 陈佳辉 2019/03/27
-#   功能：实现循环打印指定文本内容，并可保存log。
-#       该脚本为演示Shell功能，尽量采用多种语法格式
-#   参数：
-#       -h  显示该帮助文本
-#       -l  log保存路径
-#       -e  是否显式显示log
-#       -t  循环次数
-#       -c  文本内容
+#	Shell Demo
+#	@ 陈佳辉 2019/03/27创建
+#	版本：20190429 v1.01
+#	功能：
+#		循环打印指定文本内容，并可保存log。
+#		该脚本为演示Shell功能，尽量采用多种语法格式。
+#	参数：
+#		-h  显示该帮助文本
+#		-l  log保存路径
+#		-e  是否显式显示log
+#		-t  循环次数
+#		-c  文本内容
+#	示例：'$0' -t 13 -c "This is a demo."
 #
 ###########################################################################
 '
 
-ARG_LOG="./tmp.log"
+ARG_LOG="$(dirname $0)/tmp.log"
 ARG_ECHO=true
 ARG_TIMES=5
 ARG_CONTENT="Hello World!"
@@ -111,6 +114,7 @@ func_help() {
 main() {
 	#创建log文件
 	echo " Shell Demo " >> $ARG_LOG
+	
 	this_print "$ARG_LOG, $ARG_ECHO, $ARG_TIMES, \"$ARG_CONTENT\""
 	this_print "$(date) 开始测试===>"
 
