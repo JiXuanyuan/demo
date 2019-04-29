@@ -120,7 +120,7 @@ func_content() {
 }
 
 func_script() {
-	#去掉引号
+	#去掉引号，不止去掉两端引号，可能有问题20190430
 	ARG_SCRIPT=$(echo $@ | sed 's/\"//g')
 	return 0
 }
