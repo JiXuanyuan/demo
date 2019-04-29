@@ -22,7 +22,7 @@
         git commit -m "add test.c" （添加-a，commit所有修改）
         git push    （使用git push -u origin master ，指定master分支）
     5）检出文件
-        git checkout -- newfile （删除本地文件后，可再检出newfile文件
+        git checkout -- newfile （删除本地文件后，可再检出newfile文件)
     6）更新代码
         git fetch
         git merge
