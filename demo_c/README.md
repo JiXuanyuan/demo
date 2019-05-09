@@ -1,5 +1,7 @@
 # Shell C
 
+## KMP算法示例
+
 ## Makefile总述
 
     1）目标规则
