@@ -6,7 +6,7 @@ char *txt1 = "\
             (William Black)\n\
     To see a world in a grain of sand\n\
     And a heaven in a wild flower,\n\
-    Hold infinity in the palm of your hand\n\
+    Hold infinity in the palm of your hand,\n\
     And eternity in an hour.\n\
 ";
 
@@ -36,7 +36,6 @@ int main(int argc, char const *argv[])
     // 匹配模式串
     string_assign(&p1, " in ");
     string_echo(&p1);
-    // kmp_index(&str, &p1, 1);
     int i = 0;
     do {
         i = kmp_index(&str, &p1, i+1);

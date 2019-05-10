@@ -1,32 +1,5 @@
 #include "kmp.h"
 
-int kmp_index_ordinary(string *s, string *p, int pos) {
-    // index 值域1～length，0无匹配。
-    if (pos <= 0 || pos > s->length) {
-        LOG_ERROR("error, pos=%d", pos);
-        return 0;
-    }
-
-    int index = 0;
-    int i = pos;
-    int j = 1;
-    while (i <= s->length && j <= p->length) {
-        LOG_DEBUG("s[%d]=%c, p[%d]=%c", i, s->ch[i-1], j, p->ch[j-1]);
-        if (s->ch[i-1] == p->ch[j-1]) {
-            i++;
-            j++;
-        } else {
-            i = i - j + 2;
-            j = 1;
-        }
-    }
-    if (j > p->length) {
-        index = i - p->length;
-    }
-    LOG_INFO("index=%d", index);
-    return index;
-}
-
 static status kmp_next_init(string *p, int **next) {
     *next = (int *) common_malloc(p->length * sizeof(int));
     if (*next == NULL) {
@@ -42,7 +15,12 @@ static status kmp_next_init(string *p, int **next) {
         if (k == 0 || p->ch[j-1] == p->ch[k-1]) {
             j++;
             k++;
-            (*next)[j-1] = k;
+            // KMP算法改进，优化"aaaab"类模式串重复比较
+            if (p->ch[j-1] != p->ch[k-1]) {
+                (*next)[j-1] = k;
+            } else {
+                (*next)[j-1] = (*next)[k-1];
+            }
         } else {
             k = (*next)[k-1];
         }
